@@ -1,0 +1,19 @@
+@import 'common';
+
+.root {
+  margin-left: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  @media only screen and (min-width: 992px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  h1 {
+    color: #57d35b;
+  }
+}
+
+.button {
+  @include button();
+}
