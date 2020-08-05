@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cssModule from '../styles/counter.module.scss';
+import { LogsContext } from '../context/logs';
 
 const Counter = (props) => {
   const [counter, setCounter] = useState(0);
+  const { pushLog } = useContext(LogsContext);
+
+  const didMountRef = useRef(false);
+
+  useEffect(() => pushLog('effect: did mount'), [pushLog]);
+
+  useEffect(() => {
+    if (didMountRef.current) pushLog('effect: did update');
+    else didMountRef.current = true;
+  }, [counter, pushLog]);
+
+  useEffect(() => () => pushLog('effect: will unmount'), [pushLog]);
 
   const increment = () => {
     setCounter(counter + 1);
