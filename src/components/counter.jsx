@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cssModule from '../styles/counter.module.scss';
 
 const Counter = (props) => {
   const [counter, setCounter] = useState(0);
@@ -8,10 +9,16 @@ const Counter = (props) => {
   };
 
   return (
-    <div>
+    <div className={cssModule.root}>
       <h1>Counter: {counter}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={() => props.setState('landing')}>Back</button>
+      <button className={cssModule.button} onClick={increment}>
+        Increment
+      </button>
+      <button
+        className={cssModule.button}
+        onClick={() => props.setState('landing')}>
+        Back
+      </button>
     </div>
   );
 };

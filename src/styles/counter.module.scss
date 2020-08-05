@@ -1,0 +1,18 @@
+@import 'common';
+
+.root {
+  width: 100%;
+  padding-left: auto;
+  padding-right: auto;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #000;
+  color: #57d35b;
+}
+
+.button {
+  @include button();
+  margin-left: 2px;
+  margin-right: 2px;
+}
